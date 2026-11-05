@@ -1,12 +1,6 @@
 # VYBE — Premium Event Discovery & Management Platform
 > **Find Your People. Feel The Moment.**
 
-[![Platform](https://img.shields.io/badge/Platform-Web%20Desktop%20%26%20Mobile-B9F45D?style=for-the-badge)](https://github.com)
-[![License](https://img.shields.io/badge/License-MIT-B7A4FF?style=for-the-badge)](LICENSE)
-[![Architecture](https://img.shields.io/badge/Architecture-Vanilla%20ES6%2B%20%2F%20Zero--Backend-FFB59D?style=for-the-badge)](https://github.com)
-
----
-
 ## 1. Overview
 
 **VYBE** is a commercial-grade, responsive, and visually immersive event discovery and management web platform. Designed at the intersection of a modern cultural discovery platform and a high-end digital lifestyle magazine, VYBE connects urban enthusiasts with curated concerts, technology conferences, artisan workshops, athletic jams, and contemporary cultural exhibitions.
