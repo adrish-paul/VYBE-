@@ -1,0 +1,570 @@
+/* ==========================================================================
+   VYBE - Responsive Layout Stylesheet
+   Mobile First & Desktop Media Query Adaptations
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Large Desktops (1440px+)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1440px) {
+  :root {
+    --container-max: 1380px;
+  }
+
+  .hero-title {
+    font-size: 5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Laptops & Standard Desktops (1024px - 1280px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .hero-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 2.5rem;
+  }
+
+  .why-vybe-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.2fr 1fr 1fr 1.2fr;
+    gap: 2.5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Tablets (768px - 1023px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .nav-links-desktop {
+    display: none;
+  }
+
+  .mobile-toggle-btn {
+    display: flex;
+  }
+
+  .navbar-pill {
+    padding: 0.5rem 1rem;
+  }
+
+  /* Hero */
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    text-align: center;
+  }
+
+  .hero-content-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+  }
+
+  .hero-social-proof {
+    justify-content: center;
+  }
+
+  .hero-card-stage {
+    margin: 0 auto;
+  }
+
+  /* Featured Events */
+  .featured-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .featured-side-stack {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .featured-side-card {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-side-img-wrap {
+    height: 180px;
+  }
+
+  /* Event Exploration */
+  .events-grid-container,
+  .events-skeleton-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .timeline-row {
+    grid-template-columns: 110px 140px 1fr 160px;
+    gap: 1.25rem;
+    padding: 1.1rem 1.25rem;
+  }
+
+  /* How It Works */
+  .how-it-works-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* Registrations */
+  .registrations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Event Details Modal */
+  .details-body-layout {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  .details-sidebar-column {
+    position: static;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile Devices (Up to 767px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  :root {
+    --header-height: 70px;
+  }
+
+  .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .navbar-wrapper {
+    top: 0.75rem;
+    padding: 0 0.75rem;
+  }
+
+  .navbar-pill {
+    height: 58px;
+    padding: 0.4rem 0.75rem 0.4rem 1rem;
+  }
+
+  .brand-logo {
+    font-size: 1.25rem;
+  }
+
+  .nav-btn-explore {
+    display: none;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding-top: calc(var(--header-height) + 3rem);
+    padding-bottom: 3.5rem;
+    min-height: auto;
+  }
+
+  .hero-title {
+    font-size: 2.45rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+  }
+
+  .floater-sticker {
+    right: 0;
+    top: -16px;
+    font-size: 0.75rem;
+  }
+
+  .floater-metrics {
+    left: 0;
+    bottom: -16px;
+    padding: 0.6rem 0.9rem;
+  }
+
+  .metrics-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .metrics-info strong {
+    font-size: 0.95rem;
+  }
+
+  .hero-scroll-indicator {
+    display: none;
+  }
+
+  /* Kinetic Ticker Ribbon Mobile Adapt */
+  .kinetic-ticker-ribbon {
+    padding: 0.85rem 0;
+  }
+
+  .ticker-chunk {
+    font-size: 0.82rem;
+    gap: 1.25rem;
+  }
+
+  /* Featured Events */
+  .featured-main-card .featured-img-wrap {
+    height: 220px;
+  }
+
+  .featured-side-stack {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-body {
+    padding: 1.25rem;
+  }
+
+  .featured-title {
+    font-size: 1.35rem;
+  }
+
+  .featured-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .featured-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  /* Exploration Section */
+  .explore-controls-wrapper {
+    padding: 1.2rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .explore-top-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+  }
+
+  .search-input-group {
+    width: 100%;
+    flex: none;
+  }
+
+  .custom-select-wrap,
+  .sort-select {
+    width: 100%;
+  }
+
+  .view-switcher-pill {
+    margin-left: 0;
+  }
+
+  .events-grid-container,
+  .events-skeleton-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Timeline View on Mobile: reflow to vertical card */
+  .timeline-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+
+  .timeline-date-col {
+    border-right: none;
+    border-bottom: 1px solid var(--border-glass);
+    padding-right: 0;
+    padding-bottom: 0.5rem;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+
+  .timeline-date-day {
+    font-size: 1.75rem;
+  }
+
+  .timeline-img-col {
+    height: 160px;
+  }
+
+  .timeline-cta-col {
+    align-items: stretch;
+    margin-top: 0.5rem;
+  }
+
+  .timeline-cta-col .btn {
+    width: 100%;
+  }
+
+  .search-kbd-hint {
+    display: none;
+  }
+
+  .ticket-barcode-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ticket-actions-bar {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .ticket-actions-bar .btn {
+    width: 100%;
+  }
+
+  /* Details Modal as Native Mobile Bottom Sheet */
+  .modal-overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .details-modal-box {
+    max-height: 92vh;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    border-bottom: none;
+    width: 100%;
+  }
+
+  .details-hero {
+    height: 260px;
+  }
+
+  .details-hero-content {
+    left: 1.25rem;
+    right: 1.25rem;
+    bottom: 1.25rem;
+  }
+
+  .details-title {
+    font-size: 1.45rem;
+  }
+
+  .details-body-layout {
+    padding: 1.25rem 1.25rem 3rem;
+  }
+
+  .details-sidebar-column .details-booking-card {
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Registration Form Modal */
+  .modal-card {
+    padding: 1.75rem 1.25rem;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    width: 100%;
+    max-height: 92vh;
+  }
+
+  .form-row-half {
+    grid-template-columns: 1fr;
+  }
+
+  /* Digital Ticket Pass */
+  .ticket-details-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+
+  .ticket-barcode-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+
+  .ticket-actions-bar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .ticket-actions-bar .btn {
+    width: 100%;
+  }
+
+  /* My Registrations */
+  .reg-card {
+    grid-template-columns: 1fr;
+  }
+
+  .reg-card-img-wrap {
+    height: 160px;
+  }
+
+  .reg-card-details-strip {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  /* Why VYBE */
+  .why-vybe-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Testimonials */
+  .testimonial-card {
+    padding: 2rem 1.25rem;
+  }
+
+  .test-quote-text {
+    font-size: 1.15rem;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .newsletter-form-row {
+    flex-direction: column;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  /* Form Inputs iOS Auto-zoom Safeguard (prevents disorienting page zoom on focus) */
+  .search-field,
+  .sort-select,
+  .form-input,
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select {
+    font-size: 16px !important;
+  }
+
+  /* Safe Dialog Modals on Mobile */
+  #cancel-confirm-modal .modal-card {
+    margin: auto 1.25rem;
+    border-radius: var(--radius-xl);
+    max-width: calc(100% - 2.5rem);
+  }
+
+  /* Touch Scrolling Momentum on Horizontal Pill Bars */
+  .category-chips-scroll,
+  .city-chips-scroll {
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+  }
+
+  .category-chip,
+  .city-chip {
+    scroll-snap-align: start;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Extra Small Mobile Phones (<= 480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.15rem;
+    line-height: 1.12;
+  }
+
+  .hero-countdown-box {
+    padding: 0.75rem 1rem;
+    gap: 0.5rem;
+  }
+
+  .hero-cd-num {
+    font-size: 1.5rem;
+  }
+
+  .navbar-pill {
+    padding: 0.35rem 0.6rem;
+  }
+
+  .brand-logo {
+    font-size: 1.15rem;
+  }
+
+  .theme-toggle-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .explore-controls-wrapper {
+    padding: 0.95rem;
+  }
+
+  .timeline-row {
+    padding: 1rem;
+  }
+
+  .timeline-img-col {
+    height: 140px;
+  }
+
+  .ticket-actions-bar {
+    padding: 1rem;
+  }
+
+  .details-hero {
+    height: 220px;
+  }
+
+  .details-title {
+    font-size: 1.28rem;
+  }
+
+  .details-body-layout {
+    padding: 1rem 1rem 2.5rem;
+  }
+
+  .test-quote-text {
+    font-size: 1.02rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion Accessibility Handlers
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track,
+  .hud-parallax-glyph,
+  .timeline-row,
+  .scroll-progress-fill {
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+

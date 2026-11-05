@@ -1,0 +1,12 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python / Tests cache
+__pycache__/
+*.py[cod]
+
+# Editor Directories
+.vscode/
+.idea/

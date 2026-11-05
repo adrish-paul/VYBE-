@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="VYBE — Premium Event Discovery & Management Platform. Discover concerts, tech conferences, workshops, festivals, and cultural gatherings." />
+  <meta name="theme-color" content="#F8F3E6" />
+  <title>VYBE — Find Your People. Feel The Moment. | Premium Event Discovery</title>
+
+  <!-- Fast Image CDN Preconnect & DNS-Prefetch -->
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+  <link rel="dns-prefetch" href="https://images.unsplash.com" />
+
+  <!-- Google Fonts: Space Grotesk, Inter, Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,600&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <!-- Kinetic Luminescent Scroll Progress Bar (Game Website Aesthetic) -->
+  <div id="scroll-progress-bar" class="scroll-progress-bar" aria-hidden="true">
+    <div class="scroll-progress-fill" id="scroll-progress-fill">
+      <span class="scroll-progress-spark"></span>
+    </div>
+  </div>
+
+  <!-- Ambient Floating Orbs Canvas -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- Film Grain Overlay -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Confetti Canvas for Celebratory Pass Submission -->
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- =======================================================================
+       1. FLOATING NAVIGATION BAR (Section 5)
+       ======================================================================= -->
+  <header class="navbar-wrapper">
+    <nav class="navbar-pill" aria-label="Main Navigation">
+      <!-- Brand Logo -->
+      <a href="#" class="brand-logo" aria-label="VYBE Homepage">
+        <span class="brand-dot"></span>
+        <span>VYBE</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <ul class="nav-links-desktop">
+        <li><a href="#explore-section" class="nav-link">Explore</a></li>
+        <li><a href="#featured-section" class="nav-link">Featured</a></li>
+        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+        <li><a href="#why-vybe" class="nav-link">Why VYBE</a></li>
+        <li>
+          <a href="#registrations-section" class="nav-link">
+            My Passes
+            <span class="reg-count-badge" style="display: none;">0</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Action Items & Controls -->
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button type="button" class="theme-toggle-btn" data-theme-toggle aria-label="Switch Theme">
+          <i data-lucide="moon" class="theme-icon-moon"></i>
+          <i data-lucide="sun" class="theme-icon-sun" style="display: none;"></i>
+        </button>
+
+        <!-- Primary CTA -->
+        <button type="button" class="btn btn-primary btn-sm nav-btn-explore" data-action="open-explore">
+          Explore Events <i data-lucide="arrow-up-right"></i>
+        </button>
+
+        <!-- Mobile Hamburger Button -->
+        <button type="button" class="mobile-toggle-btn" id="mobile-menu-toggle" aria-label="Toggle Mobile Menu" aria-expanded="false">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <div class="brand-logo">
+        <span class="brand-dot"></span>
+        <span>VYBE</span>
+      </div>
+      <button type="button" class="modal-close-icon-btn" id="mobile-nav-close" aria-label="Close navigation menu">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+    <ul class="mobile-nav-links-list">
+      <li><a href="#explore-section" class="mobile-nav-link">Explore Experiences</a></li>
+      <li><a href="#featured-section" class="mobile-nav-link">Featured Drops</a></li>
+      <li><a href="#how-it-works" class="mobile-nav-link">How It Works</a></li>
+      <li><a href="#why-vybe" class="mobile-nav-link">Why VYBE</a></li>
+      <li>
+        <a href="#registrations-section" class="mobile-nav-link">
+          My Passes
+          <span class="reg-count-badge" style="display: none;">0</span>
+        </a>
+      </li>
+    </ul>
+    <button type="button" class="btn btn-primary btn-block btn-lg" data-action="open-register-modal">
+      Register For An Event
+    </button>
+  </div>
+
+  <main>
+    <!-- =======================================================================
+         2. HERO SECTION (Section 6)
+         ======================================================================= -->
+    <section class="hero-section" id="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Hero Left Content -->
+          <div class="hero-content-left" data-reveal>
+            <div class="hero-ticker-pill">
+              <span class="status-dot"></span>
+              <span>Something exciting is happening near you</span>
+            </div>
+
+            <h1 class="hero-title">
+              Life Happens<br />
+              <span class="editorial-italic">When You Show Up.</span>
+            </h1>
+
+            <p class="hero-subtitle">
+              Discover experiences worth leaving your comfort zone for. Find concerts, workshops, technology summits, cultural festivals, and everything in between.
+            </p>
+
+            <div class="hero-cta-group">
+              <button type="button" class="btn btn-primary btn-lg" data-action="open-explore">
+                Explore Events <i data-lucide="arrow-right"></i>
+              </button>
+              <a href="#how-it-works" class="btn btn-secondary btn-lg">
+                How It Works
+              </a>
+            </div>
+
+            <!-- Social Proof Micro-Widget -->
+            <div class="hero-social-proof">
+              <div class="avatar-stack">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=120&auto=format&fit=crop" alt="Member" class="proof-avatar" />
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop" alt="Member" class="proof-avatar" />
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=120&auto=format&fit=crop" alt="Member" class="proof-avatar" />
+                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=120&auto=format&fit=crop" alt="Member" class="proof-avatar" />
+              </div>
+              <div class="proof-text">
+                <strong class="stat-counter" data-target="14200" data-suffix="+">14,200+</strong> vibrant minds<br />
+                attending experiences this month ★★★★★
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Right Asymmetric Composition -->
+          <div class="hero-visual-right" data-reveal data-reveal-delay="2">
+            <div class="hero-card-stage" id="hero-card-stage" data-scroll-parallax="0.08">
+              <!-- Floating Pill Sticker -->
+              <div class="hero-floater floater-sticker" data-depth="18">
+                ⚡ Selling Out Fast
+              </div>
+
+              <!-- Main Floating 3D Interactive Hero Card -->
+              <article class="hero-main-card clay-card" data-tilt data-event-id="vybe-ev-01">
+                <div class="hero-card-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1200&auto=format&fit=crop" alt="Neon Horizon Synth Showcase" class="hero-card-img" />
+                  <span class="badge badge-accent hero-card-badge">Headliner</span>
+                  <span class="hero-card-price">₹899</span>
+                </div>
+
+                <div class="hero-card-info">
+                  <h3>Neon Horizon: Modular Synth Showcase</h3>
+                  <div class="hero-card-meta">
+                    <span><i data-lucide="calendar"></i> Sat, Nov 14</span>
+                    <span><i data-lucide="map-pin"></i> Bengaluru</span>
+                  </div>
+
+                  <!-- Live Countdown Widget -->
+                  <div class="hero-countdown-box">
+                    <span class="cd-label">Event Starts In</span>
+                    <div class="cd-timer">
+                      <span id="hero-cd-days">08</span><small>D</small>
+                      <span class="cd-colon">:</span>
+                      <span id="hero-cd-hours">14</span><small>H</small>
+                      <span class="cd-colon">:</span>
+                      <span id="hero-cd-mins">22</span><small>M</small>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Floating Metrics Glass Card -->
+              <div class="hero-floater floater-metrics" data-depth="12">
+                <div class="metrics-icon">
+                  <i data-lucide="sparkles"></i>
+                </div>
+                <div class="metrics-info">
+                  <strong class="stat-counter" data-target="85" data-suffix="+">85+</strong> Weekend Drops
+                  <small>Curated with zero fluff</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animated Scroll Indicator -->
+      <div class="hero-scroll-indicator" aria-hidden="true">
+        <span>Scroll to Explore</span>
+        <div class="mouse-scroll-wheel"></div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         KINETIC SCROLL MARQUEE TICKER (Game-Website Style Infinite Ribbon)
+         Dynamic velocity-reactive infinite ticker with tech HUD glyphs
+         ======================================================================= -->
+    <div class="kinetic-ticker-ribbon" id="kinetic-ticker-ribbon" aria-hidden="true">
+      <div class="ticker-track" id="ticker-track">
+        <div class="ticker-chunk">
+          <span class="ticker-accent">✦ LIVE RADAR</span>
+          <span class="ticker-text">20+ CURATED EXPERIENCES</span>
+          <span class="ticker-symbol">◈</span>
+          <span class="ticker-text">BENGALURU • MUMBAI • DELHI NCR • GOA • KOLKATA</span>
+          <span class="ticker-symbol">◈</span>
+          <span class="ticker-accent">⚡ INSTANT SMART PASSES</span>
+          <span class="ticker-text">CONTACTLESS GATE CHECK-IN</span>
+          <span class="ticker-symbol">◈</span>
+          <span class="ticker-text">100% VERIFIED CURATORS</span>
+          <span class="ticker-symbol">◈</span>
+          <span class="ticker-accent">FIND YOUR PEOPLE. FEEL THE MOMENT.</span>
+          <span class="ticker-symbol">✦</span>
+        </div>
+        <div class="ticker-chunk" aria-hidden="true">
+          <span class="ticker-accent">✦ LIVE RADAR</span>
+          <span class="ticker-text">20+ CURATED EXPERIENCES</span>
+          <span class="ticker-symbol">◈</span>
+          <span class="ticker-text">BENGALURU • MUMBAI • DELHI NCR • GOA • KOLKATA</span>
+          <span class="ticker-symbol">◈</span>
+          <span class="ticker-accent">⚡ INSTANT SMART PASSES</span>
+          <span class="ticker-text">CONTACTLESS GATE CHECK-IN</span>
+          <span class="ticker-symbol">◈</span>
+          <span class="ticker-text">100% VERIFIED CURATORS</span>
+          <span class="ticker-symbol">◈</span>
+          <span class="ticker-accent">FIND YOUR PEOPLE. FEEL THE MOMENT.</span>
+          <span class="ticker-symbol">✦</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- =======================================================================
+         3. FEATURED EVENTS SECTION (Section 7)
+         ======================================================================= -->
+    <section class="section" id="featured-section">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-tag">CURATED HIGHLIGHTS</span>
+          <h2 class="section-title">Not Your Average Weekend.</h2>
+          <p class="section-subtitle">Experiences handpicked by our editorial team worth marking on your calendar.</p>
+        </div>
+
+        <!-- Rendered asynchronously by events.js & main.js -->
+        <div class="featured-grid" id="featured-events-grid" data-reveal data-reveal-delay="1">
+          <!-- Dynamic injection -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         4. EVENT EXPLORATION SECTION (Section 8)
+         ======================================================================= -->
+    <section class="section" id="explore-section">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-tag">EXPLORE EXPERIENCES</span>
+          <h2 class="section-title">Find Your Next Big Thing.</h2>
+          <p class="section-subtitle">Real-time search across concerts, technology hackathons, artisan workshops, and sporting jams.</p>
+        </div>
+
+        <!-- Search & Filter Controls -->
+        <div class="explore-controls-wrapper clay-card lumen-glow-surface" data-reveal>
+          <div class="explore-top-bar">
+            <!-- Search Bar -->
+            <div class="search-input-group">
+              <i data-lucide="search" class="search-icon-decor"></i>
+              <input type="text" id="event-search-input" class="search-field" placeholder="Search by event name, venue, city, or keyword..." autocomplete="off" />
+              <button type="button" id="clear-search-btn" class="clear-search-btn" aria-label="Clear search">✕</button>
+              <kbd class="search-kbd-hint">/</kbd>
+            </div>
+
+            <!-- Sort Dropdown -->
+            <div class="custom-select-wrap">
+              <i data-lucide="arrow-up-down" class="select-icon-decor"></i>
+              <select id="sort-select" class="sort-select" aria-label="Sort events">
+                <option value="upcoming">Upcoming First</option>
+                <option value="alphabetical">Name (A–Z)</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+              </select>
+            </div>
+
+            <!-- Free Only Toggle -->
+            <label class="free-toggle-label" for="filter-free-only">
+              <input type="checkbox" id="filter-free-only" class="free-toggle-checkbox" />
+              <span>Free Entry</span>
+            </label>
+
+            <!-- Saved Only Filter Pill -->
+            <button type="button" class="btn-filter-saved" id="filter-saved-only" aria-pressed="false">
+              <i data-lucide="bookmark"></i>
+              <span>Saved Only</span>
+              <span class="saved-count-pill" id="saved-filter-count">0</span>
+            </button>
+
+            <!-- View Switcher (Grid vs Chronological Timeline) -->
+            <div class="view-switcher-pill" role="radiogroup" aria-label="View Mode">
+              <button type="button" class="view-btn active" id="view-mode-grid" data-view="grid" aria-label="Grid View" title="Grid View">
+                <i data-lucide="grid-3x3"></i>
+              </button>
+              <button type="button" class="view-btn" id="view-mode-timeline" data-view="timeline" aria-label="Timeline View" title="Timeline View">
+                <i data-lucide="calendar-days"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Category Filter Pills -->
+          <div class="category-chips-scroll" id="category-filter-pills" role="tablist" aria-label="Filter events by category">
+            <!-- Rendered by main.js -->
+          </div>
+
+          <!-- City / Region Filter Pills -->
+          <div class="city-chips-scroll" id="city-filter-pills" role="tablist" aria-label="Filter events by city">
+            <!-- Rendered by main.js -->
+          </div>
+        </div>
+
+        <!-- Results Counter & Fast Search Hint -->
+        <div class="results-meta-bar" data-reveal>
+          <div class="results-count-group">
+            <span id="results-count-text">Showing curated experiences</span>
+            <span class="active-city-indicator" id="active-city-indicator">Across All Cities</span>
+          </div>
+          <span class="results-quick-hint">Press <kbd class="code-font">/</kbd> to search anytime</span>
+        </div>
+
+        <!-- Frosted Radar Loader Status Indicator (Fallback during heavy filtering) -->
+        <div class="events-loader-status" id="events-loader-status" style="display: none;">
+          <div class="loader-pulse-ring"></div>
+          <span>Curating dynamic experiences...</span>
+        </div>
+
+        <!-- Frosted Glass Loading Skeleton Grid (Instant standby) -->
+        <div class="events-skeleton-grid" id="events-loading-skeleton" style="display: none;">
+          <div class="skeleton-card">
+            <div class="skeleton-img-box shimmer-effect"></div>
+            <div class="skeleton-content">
+              <div class="skeleton-line shimmer-effect" style="width: 35%; height: 16px;"></div>
+              <div class="skeleton-line shimmer-effect" style="width: 85%; height: 24px; margin: 4px 0;"></div>
+              <div class="skeleton-line shimmer-effect" style="width: 95%; height: 14px;"></div>
+              <div class="skeleton-line shimmer-effect" style="width: 70%; height: 14px;"></div>
+            </div>
+            <div class="skeleton-footer">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <div class="skeleton-circle shimmer-effect"></div>
+                <div class="skeleton-line shimmer-effect" style="width: 80px; height: 14px;"></div>
+              </div>
+              <div class="skeleton-pill shimmer-effect" style="width: 90px; height: 32px;"></div>
+            </div>
+          </div>
+          <div class="skeleton-card">
+            <div class="skeleton-img-box shimmer-effect"></div>
+            <div class="skeleton-content">
+              <div class="skeleton-line shimmer-effect" style="width: 40%; height: 16px;"></div>
+              <div class="skeleton-line shimmer-effect" style="width: 80%; height: 24px; margin: 4px 0;"></div>
+              <div class="skeleton-line shimmer-effect" style="width: 90%; height: 14px;"></div>
+              <div class="skeleton-line shimmer-effect" style="width: 65%; height: 14px;"></div>
+            </div>
+            <div class="skeleton-footer">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <div class="skeleton-circle shimmer-effect"></div>
+                <div class="skeleton-line shimmer-effect" style="width: 80px; height: 14px;"></div>
+              </div>
+              <div class="skeleton-pill shimmer-effect" style="width: 90px; height: 32px;"></div>
+            </div>
+          </div>
+          <div class="skeleton-card">
+            <div class="skeleton-img-box shimmer-effect"></div>
+            <div class="skeleton-content">
+              <div class="skeleton-line shimmer-effect" style="width: 30%; height: 16px;"></div>
+              <div class="skeleton-line shimmer-effect" style="width: 90%; height: 24px; margin: 4px 0;"></div>
+              <div class="skeleton-line shimmer-effect" style="width: 92%; height: 14px;"></div>
+              <div class="skeleton-line shimmer-effect" style="width: 75%; height: 14px;"></div>
+            </div>
+            <div class="skeleton-footer">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <div class="skeleton-circle shimmer-effect"></div>
+                <div class="skeleton-line shimmer-effect" style="width: 80px; height: 14px;"></div>
+              </div>
+              <div class="skeleton-pill shimmer-effect" style="width: 90px; height: 32px;"></div>
+            </div>
+          </div>
+          <div class="skeleton-card">
+            <div class="skeleton-img-box shimmer-effect"></div>
+            <div class="skeleton-content">
+              <div class="skeleton-line shimmer-effect" style="width: 35%; height: 16px;"></div>
+              <div class="skeleton-line shimmer-effect" style="width: 85%; height: 24px; margin: 4px 0;"></div>
+              <div class="skeleton-line shimmer-effect" style="width: 95%; height: 14px;"></div>
+              <div class="skeleton-line shimmer-effect" style="width: 70%; height: 14px;"></div>
+            </div>
+            <div class="skeleton-footer">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <div class="skeleton-circle shimmer-effect"></div>
+                <div class="skeleton-line shimmer-effect" style="width: 80px; height: 14px;"></div>
+              </div>
+              <div class="skeleton-pill shimmer-effect" style="width: 90px; height: 32px;"></div>
+            </div>
+          </div>
+          <div class="skeleton-card">
+            <div class="skeleton-img-box shimmer-effect"></div>
+            <div class="skeleton-content">
+              <div class="skeleton-line shimmer-effect" style="width: 40%; height: 16px;"></div>
+              <div class="skeleton-line shimmer-effect" style="width: 80%; height: 24px; margin: 4px 0;"></div>
+              <div class="skeleton-line shimmer-effect" style="width: 90%; height: 14px;"></div>
+              <div class="skeleton-line shimmer-effect" style="width: 65%; height: 14px;"></div>
+            </div>
+            <div class="skeleton-footer">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <div class="skeleton-circle shimmer-effect"></div>
+                <div class="skeleton-line shimmer-effect" style="width: 80px; height: 14px;"></div>
+              </div>
+              <div class="skeleton-pill shimmer-effect" style="width: 90px; height: 32px;"></div>
+            </div>
+          </div>
+          <div class="skeleton-card">
+            <div class="skeleton-img-box shimmer-effect"></div>
+            <div class="skeleton-content">
+              <div class="skeleton-line shimmer-effect" style="width: 30%; height: 16px;"></div>
+              <div class="skeleton-line shimmer-effect" style="width: 90%; height: 24px; margin: 4px 0;"></div>
+              <div class="skeleton-line shimmer-effect" style="width: 92%; height: 14px;"></div>
+              <div class="skeleton-line shimmer-effect" style="width: 75%; height: 14px;"></div>
+            </div>
+            <div class="skeleton-footer">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <div class="skeleton-circle shimmer-effect"></div>
+                <div class="skeleton-line shimmer-effect" style="width: 80px; height: 14px;"></div>
+              </div>
+              <div class="skeleton-pill shimmer-effect" style="width: 90px; height: 32px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Responsive Event Cards Grid (3 Columns) - Pre-revealed for instantaneous rendering -->
+        <div class="events-grid-container revealed" id="events-grid">
+          <!-- Injected dynamically via main.js -->
+        </div>
+
+        <!-- Chronological Timeline View (Alternative view) -->
+        <div class="events-timeline-container" id="events-timeline" style="display: none;" data-reveal>
+          <!-- Injected dynamically via main.js -->
+        </div>
+
+        <!-- Empty Search State -->
+        <div class="empty-state-card clay-card" id="events-empty-state" style="display: none;">
+          <div class="empty-state-icon">🔍</div>
+          <h3>No matching experiences found</h3>
+          <p>We couldn’t find events matching your exact criteria. Try adjusting your search query or reset your filters.</p>
+          <button type="button" class="btn btn-primary" id="btn-reset-filters">
+            Reset All Filters
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         5. HOW IT WORKS SECTION (Section 12)
+         ======================================================================= -->
+    <section class="section" id="how-it-works">
+      <div class="container">
+        <div class="section-header text-center" data-reveal>
+          <span class="section-tag">THE VYBE PLAYBOOK</span>
+          <h2 class="section-title">How It Works.</h2>
+          <p class="section-subtitle">Three seamless steps from discovery to the dance floor or workshop table.</p>
+        </div>
+
+        <div class="how-it-works-grid">
+          <article class="step-card clay-card" data-reveal data-reveal-delay="1">
+            <div class="step-badge-clay step-badge-01">01</div>
+            <h3 class="step-title">Discover</h3>
+            <p class="step-desc">
+              Explore meticulously curated experiences that match your niche curiosity—whether it’s modular synthesizer dubs or spatial computing masterclasses.
+            </p>
+          </article>
+
+          <article class="step-card clay-card" data-reveal data-reveal-delay="2">
+            <div class="step-badge-clay step-badge-02">02</div>
+            <h3 class="step-title">Register</h3>
+            <p class="step-desc">
+              Reserve your spot in under twenty seconds. Receive a high-fidelity digital pass with a cryptographic QR code, stored safely in your browser.
+            </p>
+          </article>
+
+          <article class="step-card clay-card" data-reveal data-reveal-delay="3">
+            <div class="step-badge-clay step-badge-03">03</div>
+            <h3 class="step-title">Experience</h3>
+            <p class="step-desc">
+              Show up, scan your pass at the door, meet your tribe, and leave with meaningful memories rather than just another weekend on the couch.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         6. WHY VYBE SECTION (Section 13)
+         ======================================================================= -->
+    <section class="section" id="why-vybe">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-tag">THE VYBE STANDARD</span>
+          <h2 class="section-title">Why Vibrant Souls Choose VYBE.</h2>
+          <p class="section-subtitle">We believe your spare time is too valuable for chaotic feeds, spam listings, and broken ticket checkout flows.</p>
+        </div>
+
+        <div class="why-vybe-grid">
+          <div class="why-card clay-card" data-reveal data-reveal-delay="1">
+            <div class="why-icon-wrap why-icon-01">
+              <i data-lucide="check-check"></i>
+            </div>
+            <h3 class="why-card-title">Curated Quality</h3>
+            <p class="why-card-desc">
+              Every event is vetted for authentic hosts, safe spaces, intentional sound design, and memorable programming.
+            </p>
+          </div>
+
+          <div class="why-card clay-card" data-reveal data-reveal-delay="2">
+            <div class="why-icon-wrap why-icon-02">
+              <i data-lucide="zap"></i>
+            </div>
+            <h3 class="why-card-title">Frictionless Passes</h3>
+            <p class="why-card-desc">
+              Zero complicated logins or hidden convenience markups. Your pass lives directly on your device with offline reliability.
+            </p>
+          </div>
+
+          <div class="why-card clay-card" data-reveal data-reveal-delay="3">
+            <div class="why-icon-wrap why-icon-03">
+              <i data-lucide="layers"></i>
+            </div>
+            <h3 class="why-card-title">Diverse Niches</h3>
+            <p class="why-card-desc">
+              From dawn bouldering jams to midnight ambient synthesis and wheel pottery—our spectrum feeds every creative appetite.
+            </p>
+          </div>
+
+          <div class="why-card clay-card" data-reveal data-reveal-delay="4">
+            <div class="why-icon-wrap why-icon-04">
+              <i data-lucide="compass"></i>
+            </div>
+            <h3 class="why-card-title">Urban Culture</h3>
+            <p class="why-card-desc">
+              Built at the crossroads of a modern event application and a digital lifestyle magazine for contemporary city dwellers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         7. MY REGISTRATIONS SECTION (Section 11)
+         ======================================================================= -->
+    <section class="section" id="registrations-section">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="section-tag">BROWSER PASS WALLET</span>
+          <h2 class="section-title">
+            My Registrations 
+            <span class="reg-count-badge" style="display: none;">0</span>
+          </h2>
+          <p class="section-subtitle">
+            Your demonstration passes stored in LocalStorage. Completely client-side, zero server tracking.
+          </p>
+        </div>
+
+        <!-- Registrations Cards Container -->
+        <div class="registrations-grid" id="registrations-list" data-reveal>
+          <!-- Injected via registration.js -->
+        </div>
+
+        <!-- Empty Registrations State -->
+        <div class="empty-state-card clay-card" id="registrations-empty" data-reveal>
+          <div class="empty-state-icon">🎟️</div>
+          <h3>No passes booked yet</h3>
+          <p>You haven’t registered for any experiences yet. Browse our curated calendar and reserve your first spot.</p>
+          <button type="button" class="btn btn-primary" data-action="open-explore">
+            Discover Upcoming Events
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         8. TESTIMONIALS SECTION (Section 14)
+         ======================================================================= -->
+    <section class="section" id="testimonials-section">
+      <div class="container">
+        <div class="section-header text-center" data-reveal>
+          <span class="section-tag">COMMUNITY VOICES</span>
+          <h2 class="section-title">Stories From The Crowd.</h2>
+          <p class="section-subtitle">Hear from attendees who broke their routine and showed up.</p>
+        </div>
+
+        <div class="testimonials-carousel-wrapper" data-reveal>
+          <div class="testimonials-track" id="testimonials-track">
+            <!-- Injected via main.js -->
+          </div>
+
+          <!-- Carousel Controls -->
+          <div class="carousel-controls-bar">
+            <button type="button" class="carousel-nav-btn" id="test-prev-btn" aria-label="Previous story">
+              <i data-lucide="chevron-left"></i>
+            </button>
+
+            <div class="carousel-dots-group" id="test-dots">
+              <!-- Dot indicators -->
+            </div>
+
+            <button type="button" class="carousel-nav-btn" id="test-next-btn" aria-label="Next story">
+              <i data-lucide="chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =======================================================================
+       9. FOOTER (Section 15)
+       ======================================================================= -->
+  <footer class="footer-section">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Col -->
+        <div class="footer-brand">
+          <div class="brand-logo" style="color: #FFFFFF; margin-bottom: 0.75rem;">
+            <span class="brand-dot"></span>
+            <span>VYBE</span>
+          </div>
+          <p class="footer-tagline">
+            Find Your People. Feel The Moment. A premier lifestyle platform curated for the curious, ambitious, and experiential.
+          </p>
+          <div class="footer-social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-pill-link" aria-label="Instagram">
+              <i data-lucide="instagram"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-pill-link" aria-label="Twitter">
+              <i data-lucide="twitter"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-pill-link" aria-label="LinkedIn">
+              <i data-lucide="linkedin"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-pill-link" aria-label="YouTube">
+              <i data-lucide="youtube"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="#explore-section">Explore Events</a></li>
+            <li class="footer-link-item"><a href="#featured-section">Curator’s Picks</a></li>
+            <li class="footer-link-item"><a href="#how-it-works">How It Works</a></li>
+            <li class="footer-link-item"><a href="#registrations-section">My Passes</a></li>
+            <li class="footer-link-item"><a href="#why-vybe">Why VYBE</a></li>
+          </ul>
+        </div>
+
+        <!-- Categories -->
+        <div>
+          <h4 class="footer-col-title">Categories</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="#explore-section">Live Music & Ambient</a></li>
+            <li class="footer-link-item"><a href="#explore-section">AI & Design Tech</a></li>
+            <li class="footer-link-item"><a href="#explore-section">Artisanal Workshops</a></li>
+            <li class="footer-link-item"><a href="#explore-section">Urban Athletic Jams</a></li>
+            <li class="footer-link-item"><a href="#explore-section">Contemporary Art</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter Drop -->
+        <div>
+          <h4 class="footer-col-title">The Friday Drop</h4>
+          <p class="newsletter-desc">
+            Receive our weekly digest of underground gatherings, secret talks, and early-bird tickets directly in your inbox.
+          </p>
+          <form id="newsletter-form" class="newsletter-form">
+            <div class="newsletter-form-row">
+              <input type="email" id="newsletter-email" class="newsletter-input" placeholder="Your email address..." required />
+              <button type="submit" class="btn btn-primary btn-sm">Join</button>
+            </div>
+            <div id="newsletter-feedback" class="newsletter-feedback"></div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <div>
+          © 2026 VYBE Experience Platform. All rights reserved.
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+          <span>Client-Side Demonstration Platform • LocalStorage Data Retention</span>
+          <a href="tests/test_suite.html" class="qa-suite-link" target="_blank" style="color: var(--accent-lime); font-family: var(--font-mono); font-size: 0.78rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.2rem 0.6rem; border: 1px solid rgba(185, 244, 93, 0.3); border-radius: 999px;">
+            <span style="width: 6px; height: 6px; background: var(--accent-lime); border-radius: 50%; box-shadow: 0 0 6px var(--accent-lime);"></span> QA Suite (24 Scenarios)
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =======================================================================
+       10. MODALS (Details, Registration, Digital Pass, Cancellation)
+       ======================================================================= -->
+
+  <!-- A. Event Details Magazine Modal -->
+  <div class="modal-overlay hidden" id="event-details-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="details-modal-box" id="event-details-content">
+      <!-- Injected via main.js -->
+    </div>
+  </div>
+
+  <!-- B. Registration Form Modal -->
+  <div class="modal-overlay hidden" id="registration-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-header-text">
+          <span class="badge badge-accent" style="margin-bottom: 0.4rem;">Pass Checkout</span>
+          <h3>Reserve Your Spot</h3>
+          <p>Instant confirmation • Stored locally in your browser</p>
+        </div>
+        <button type="button" class="modal-close-icon-btn" id="reg-modal-close" aria-label="Close registration form">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <!-- Event Preview Box (Updates on selection) -->
+      <div class="reg-preview-box" id="reg-event-preview" style="display: none;"></div>
+
+      <form id="registration-form" novalidate>
+        <div class="reg-form-fields">
+          <!-- Event Dropdown -->
+          <div class="form-group">
+            <label for="reg-event-select" class="form-label">Select Experience *</label>
+            <select id="reg-event-select" class="form-select" required>
+              <!-- Populated by registration.js -->
+            </select>
+            <span class="form-error-msg" id="reg-event-error"></span>
+          </div>
+
+          <!-- Attendee Full Name -->
+          <div class="form-group">
+            <label for="reg-name" class="form-label">Full Name *</label>
+            <input type="text" id="reg-name" class="form-input" placeholder="e.g. Maya Ramanathan" required />
+            <span class="form-error-msg" id="reg-name-error"></span>
+          </div>
+
+          <!-- Row: Email & Phone -->
+          <div class="form-row-half">
+            <div class="form-group">
+              <label for="reg-email" class="form-label">Email Address *</label>
+              <input type="email" id="reg-email" class="form-input" placeholder="name@domain.com" required />
+              <span class="form-error-msg" id="reg-email-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="reg-phone" class="form-label">Mobile Number *</label>
+              <input type="tel" id="reg-phone" class="form-input" placeholder="10-digit mobile" maxlength="14" required />
+              <span class="form-error-msg" id="reg-phone-error"></span>
+            </div>
+          </div>
+
+          <!-- Row: Pass Quantity & Preferences -->
+          <div class="form-row-half">
+            <div class="form-group">
+              <label for="reg-passes" class="form-label">Passes</label>
+              <select id="reg-passes" class="form-select">
+                <option value="1">1 Admission Pass</option>
+                <option value="2">2 Admissions (Pair)</option>
+                <option value="3">3 Admissions</option>
+                <option value="4">4 Admissions (Group)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="reg-dietary" class="form-label">Dietary / Accessibility</label>
+              <input type="text" id="reg-dietary" class="form-input" placeholder="Optional notes" />
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary btn-block btn-lg" id="reg-submit-btn" style="margin-top: 0.5rem;">
+            Complete Registration <i data-lucide="check"></i>
+          </button>
+
+          <p class="demo-disclaimer-notice">
+            🔒 <strong>Demonstration Notice:</strong> Registration data is saved in your browser’s LocalStorage and will not be transmitted to an external server.
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- C. Digital Pass Ticket Modal (On Success) -->
+  <div class="modal-overlay hidden" id="ticket-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card" style="padding: 0; background: transparent; box-shadow: none;" id="ticket-modal-content">
+      <!-- Generated Procedurally in registration.js -->
+    </div>
+  </div>
+
+  <!-- D. Cancel Confirmation Dialog Modal -->
+  <div class="modal-overlay hidden" id="cancel-confirm-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card" style="max-width: 440px; text-align: center;">
+      <div style="font-size: 2.8rem; margin-bottom: 0.75rem;">⚠️</div>
+      <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">Cancel Registration?</h3>
+      <p style="margin-bottom: 1.5rem; font-size: 0.92rem;">
+        Are you sure you want to release your pass for <strong id="cancel-event-name">this event</strong>? This will remove your booking from LocalStorage.
+      </p>
+      <div style="display: flex; gap: 0.75rem; justify-content: center;">
+        <button type="button" class="btn btn-secondary" id="btn-abort-cancel">
+          Keep My Pass
+        </button>
+        <button type="button" class="btn btn-primary text-danger" id="btn-confirm-cancel" style="background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.3);">
+          Yes, Cancel Pass
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="vybe-toast" class="vybe-toast" role="status" aria-live="polite"></div>
+
+  <!-- Shora-style Kinetic Curtain Splash Intro Screen -->
+  <div class="vybe-splash-curtain" id="vybe-splash" aria-hidden="true">
+    <div class="vybe-curtain-top"></div>
+    <div class="vybe-curtain-bottom"></div>
+    <div class="vybe-curtain-content">
+      <div class="vybe-curtain-logo">
+        <span class="vybe-curtain-dot"></span>
+        <span>VYBE</span>
+      </div>
+      <div class="vybe-curtain-tagline">Find Your People. Feel The Moment.</div>
+      <div class="vybe-curtain-line-wrap">
+        <div class="vybe-curtain-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Kinetic Splash Screen Reveal Animation on Website Startup
+    (function() {
+      window.addEventListener('load', () => {
+        const splash = document.getElementById('vybe-splash');
+        if (!splash) return;
+        
+        // Brief high-impact moment to admire the branding & load line
+        setTimeout(() => {
+          splash.classList.add('vybe-splash-revealing');
+          
+          // Once curtains part, cleanly remove from render tree
+          setTimeout(() => {
+            splash.classList.add('vybe-splash-done');
+          }, 800);
+        }, 650);
+      });
+    })();
+  </script>
+
+  <!-- Core JavaScript Module -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
+
